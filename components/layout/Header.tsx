@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Wrench } from "lucide-react";
+import { Wrench, Menu } from "lucide-react";
 import { cn } from "@/lib/utils"; // Make sure you have this utility from shadcn
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 // Define navigation links in one place for easy maintenance
 const navLinks = [
@@ -52,13 +53,55 @@ export function Header() {
           })}
         </nav>
 
-        <div className="flex items-center space-x-4">
+        {/* Desktop CTAs */}
+        <div className="hidden md:flex items-center space-x-4">
           <Button variant="outline" size="sm" asChild>
             <Link href="/emergency">Emergency Service</Link>
           </Button>
           <Button size="sm" asChild>
             <Link href="/quote">Request Quote</Link>
           </Button>
+        </div>
+
+        {/* Mobile menu */}
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" aria-label="Open menu">
+                <Menu className="w-5 h-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="flex flex-col">
+              <SheetHeader>
+                <SheetTitle>Menu</SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col gap-4 p-4">
+                {navLinks.map((link) => {
+                  const isActive = pathname.startsWith(link.href);
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={cn(
+                        "text-base",
+                        isActive ? "text-primary font-medium" : "text-foreground hover:text-primary"
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
+              </div>
+              <div className="mt-auto p-4 grid grid-cols-1 gap-3">
+                <Button variant="outline" asChild>
+                  <Link href="/emergency">Emergency Service</Link>
+                </Button>
+                <Button asChild>
+                  <Link href="/quote">Request Quote</Link>
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>

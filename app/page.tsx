@@ -4,59 +4,14 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Phone, Clock, MapPin, CheckCircle, Wrench, Thermometer, Droplets, Zap, Shield, Users } from "lucide-react"
 import Link from "next/link"
+import { Header } from "@/components/layout/Header"
+import { EmergencyBanner } from "@/components/layout/EmergencyBanner"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen">
-      {/* Emergency Banner */}
-      <div className="bg-accent text-accent-foreground py-2 px-4 text-center text-sm font-medium">
-        24/7 Emergency Service Available • Call Now: (574) 555-0123
-      </div>
-
-      {/* Header */}
-      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <Wrench className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-foreground">Core Mechanical</h1>
-              <p className="text-xs text-muted-foreground">Services</p>
-            </div>
-          </div>
-
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/services" className="text-foreground hover:text-primary transition-colors">
-              Services
-            </Link>
-            <Link href="/solutions" className="text-foreground hover:text-primary transition-colors">
-              Solutions
-            </Link>
-            <Link href="/industries" className="text-foreground hover:text-primary transition-colors">
-              Industries
-            </Link>
-            <Link href="/projects" className="text-foreground hover:text-primary transition-colors">
-              Projects
-            </Link>
-            <Link href="/about" className="text-foreground hover:text-primary transition-colors">
-              About
-            </Link>
-            <Link href="/contact" className="text-foreground hover:text-primary transition-colors">
-              Contact
-            </Link>
-          </nav>
-
-          <div className="flex items-center space-x-4">
-            <Button variant="outline" size="sm" asChild>
-              <Link href="/emergency">Emergency Service</Link>
-            </Button>
-            <Button size="sm" asChild>
-              <Link href="/quote">Request Quote</Link>
-            </Button>
-          </div>
-        </div>
-      </header>
+      <EmergencyBanner text="24/7 Emergency Service Available" />
+      <Header />
 
       {/* Hero Section */}
       <section className="hero-gradient text-white py-20 lg:py-32">
@@ -358,8 +313,8 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* Sticky CTAs */}
-      <div className="fixed bottom-4 right-4 flex flex-col gap-2 z-50">
+      {/* Sticky CTAs - desktop */}
+      <div className="hidden md:flex fixed bottom-4 right-4 flex-col gap-2 z-50">
         <Button size="lg" className="bg-accent hover:bg-accent/90 shadow-lg" asChild>
           <Link href="/quote">Request Quote</Link>
         </Button>
@@ -369,6 +324,21 @@ export default function HomePage() {
             Call Now
           </Link>
         </Button>
+      </div>
+
+      {/* Sticky CTAs - mobile bottom bar */}
+      <div className="md:hidden fixed bottom-0 inset-x-0 z-50 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container mx-auto px-4 py-3 grid grid-cols-2 gap-3">
+          <Button size="sm" variant="outline" className="w-full" asChild>
+            <Link href="tel:5745550123">
+              <Phone className="w-4 h-4 mr-2" />
+              Call
+            </Link>
+          </Button>
+          <Button size="sm" className="w-full" asChild>
+            <Link href="/quote">Quote</Link>
+          </Button>
+        </div>
       </div>
     </div>
   )
