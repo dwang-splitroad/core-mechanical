@@ -109,7 +109,7 @@ export default function QuotePage() {
                     {/* Contact Information */}
                     <div>
                       <h3 className="text-lg font-semibold mb-4">Contact Information</h3>
-                      <div className="grid md:grid-cols-2 gap-4">
+                      <div className="grid sm:grid-cols-2 gap-4">
                         <div>
                           <Label htmlFor="firstName">First Name *</Label>
                           <Input id="firstName" placeholder="John" required />
@@ -119,7 +119,7 @@ export default function QuotePage() {
                           <Input id="lastName" placeholder="Smith" required />
                         </div>
                       </div>
-                      <div className="grid md:grid-cols-2 gap-4 mt-4">
+                      <div className="grid sm:grid-cols-2 gap-4 mt-4">
                         <div>
                           <Label htmlFor="phone">Phone *</Label>
                           <Input id="phone" placeholder="(574) 555-0123" required />
@@ -147,7 +147,7 @@ export default function QuotePage() {
                             required
                           />
                         </div>
-                        <div className="grid md:grid-cols-2 gap-4">
+                        <div className="grid sm:grid-cols-2 gap-4">
                           <div>
                             <Label htmlFor="facilityType">Facility Type</Label>
                             <select
@@ -211,7 +211,7 @@ export default function QuotePage() {
                           />
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-4">
+                        <div className="grid sm:grid-cols-2 gap-4">
                           <div>
                             <Label htmlFor="timeline">Desired Timeline</Label>
                             <select

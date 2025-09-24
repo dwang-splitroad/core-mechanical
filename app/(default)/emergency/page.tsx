@@ -81,7 +81,7 @@ export default function EmergencyPage() {
                 </CardHeader>
                 <CardContent>
                   <form className="space-y-4">
-                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="name">Name *</Label>
                         <Input id="name" placeholder="Your name" required />
@@ -92,7 +92,7 @@ export default function EmergencyPage() {
                       </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="phone">Phone *</Label>
                         <Input id="phone" placeholder="(574) 555-0123" required />
@@ -243,7 +243,7 @@ export default function EmergencyPage() {
               Common Emergency Situations We Handle
             </h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {[
                 "HVAC system complete failure",
                 "Chiller breakdown during peak season",

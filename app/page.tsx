@@ -32,32 +32,33 @@ export default function HomePage() {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/50" />
 
-        <div className="relative z-10 container mx-auto px-4">
+        <div className="relative z-10 container mx-auto px-4 pt-20 sm:pt-24 md:pt-8">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="secondary" className="mb-6 bg-white/10 text-white border-white/20">
+            <Badge variant="secondary" className="mb-4 sm:mb-6 bg-white/10 text-white border-white/20 text-xs sm:text-sm">
               Serving Northern Indiana • 70-Mile Radius
             </Badge>
 
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-balance">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6 text-balance leading-tight">
               Commercial mechanical service that keeps your plant running
             </h1>
 
-            <p className="text-xl lg:text-2xl mb-8 text-white/90 max-w-3xl mx-auto text-balance">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 max-w-3xl mx-auto text-balance">
               Expert HVAC, chiller, boiler, and industrial piping services with 24/7 emergency response. Minimize
               downtime, maximize efficiency.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-4 text-lg">
-                <Phone className="w-5 h-5 mr-2" />
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12">
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg w-full sm:w-auto">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Call Now: (574) 555-0123
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg bg-transparent"
+                className="border-white text-white hover:bg-white hover:text-primary px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg bg-transparent w-full sm:w-auto"
+                asChild
               >
-                Request Free Quote
+                <Link href="/quote">Request Free Quote</Link>
               </Button>
             </div>
 
@@ -90,7 +91,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
               {
                 icon: <Thermometer className="w-8 h-8" />,

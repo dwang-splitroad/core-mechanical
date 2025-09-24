@@ -7,6 +7,7 @@ import './globals.css'
 import { Header } from '@/components/layout/Header'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://coremechanical.com'),
   title: {
     default: 'Core Mechanical - Premier HVAC & Mechanical Services | Northern Indiana',
     template: '%s | Core Mechanical'

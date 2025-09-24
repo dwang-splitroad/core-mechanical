@@ -131,3 +131,31 @@
 .text-balance {
   text-wrap: balance;
 }
+
+/* Mobile optimizations for iPhone SE and similar devices */
+@media (max-width: 375px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Ensure buttons don't overflow on small screens */
+  .button-mobile-full {
+    width: 100%;
+    font-size: 0.875rem;
+  }
+  
+  /* Optimize hero sections for very small screens */
+  .hero-mobile-padding {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+/* Improved touch targets for mobile */
+@media (max-width: 768px) {
+  button, .button, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}

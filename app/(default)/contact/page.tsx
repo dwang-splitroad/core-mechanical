@@ -135,7 +135,7 @@ export default function ContactPage() {
                 </CardHeader>
                 <CardContent>
                   <form className="space-y-4">
-                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="firstName">First Name *</Label>
                         <Input id="firstName" placeholder="John" required />
@@ -151,7 +151,7 @@ export default function ContactPage() {
                       <Input id="company" placeholder="Your company name" />
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="phone">Phone *</Label>
                         <Input id="phone" placeholder="(574) 555-0123" required />

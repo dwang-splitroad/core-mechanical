@@ -22,7 +22,7 @@ export function MobileNav({ isOnDark }: { isOnDark: boolean }) {
   const pathname = usePathname();
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
           <Button
@@ -37,37 +37,42 @@ export function MobileNav({ isOnDark }: { isOnDark: boolean }) {
             <span className="sr-only">Open menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="right" className="w-[300px] sm:w-[400px] flex flex-col">
-          <Link
-            href="/"
-            className="mb-4 flex items-center space-x-2"
-            onClick={() => setIsOpen(false)}
-          >
-            <Image
-              src="/core-logo-no-inc.svg"
-              alt="Core Mechanical Logo"
-              width={160}
-              height={40}
-              className="h-10 w-auto"
-            />
-          </Link>
-          <nav className="flex-1">
+        <SheetContent side="right" className="w-[300px] sm:w-[350px] flex flex-col p-0">
+          {/* Header Section */}
+          <div className="p-6 border-b border-border">
+            <Link
+              href="/"
+              className="flex items-center space-x-2"
+              onClick={() => setIsOpen(false)}
+            >
+              <Image
+                src="/core-logo-no-inc.svg"
+                alt="Core Mechanical Logo"
+                width={160}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </Link>
+          </div>
+
+          {/* Navigation Section */}
+          <nav className="flex-1 px-6 py-4">
             <Accordion type="multiple" className="w-full">
               {navigationLinks.map((item) =>
                 item.children ? (
                   <AccordionItem key={item.title} value={item.title}>
-                    <AccordionTrigger className="py-4 text-lg hover:no-underline capitalize">
+                    <AccordionTrigger className="py-4 text-base font-semibold hover:no-underline capitalize border-b-0">
                       {item.title}
                     </AccordionTrigger>
-                    <AccordionContent className="pl-4">
-                      <div className="flex flex-col space-y-1">
+                    <AccordionContent className="pl-0 pb-2">
+                      <div className="flex flex-col space-y-0">
                         {item.children.map((child) => (
                           <Link
                             key={child.title}
                             href={child.href}
                             className={cn(
-                              'py-2 text-muted-foreground hover:text-primary',
-                              { 'text-primary font-semibold': pathname === child.href }
+                              'py-3 px-4 text-sm text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-colors',
+                              { 'text-primary font-semibold bg-accent/20': pathname === child.href }
                             )}
                             onClick={() => setIsOpen(false)}
                           >
@@ -82,8 +87,8 @@ export function MobileNav({ isOnDark }: { isOnDark: boolean }) {
                     key={item.title}
                     href={item.href}
                     className={cn(
-                      'flex w-full items-center border-b py-4 text-lg font-medium hover:underline',
-                      { 'text-primary': pathname === item.href }
+                      'flex w-full items-center py-4 text-base font-semibold hover:text-primary hover:bg-accent/50 rounded-md px-4 transition-colors',
+                      { 'text-primary bg-accent/20': pathname === item.href }
                     )}
                     onClick={() => setIsOpen(false)}
                   >
@@ -93,13 +98,14 @@ export function MobileNav({ isOnDark }: { isOnDark: boolean }) {
               )}
             </Accordion>
           </nav>
-          <div className="border-t border-border pt-6 mt-6 flex flex-col gap-4">
-            <Button asChild className="w-full">
+          {/* CTA Section */}
+          <div className="border-t border-border p-6 flex flex-col gap-3">
+            <Button asChild className="w-full h-12 text-base font-semibold">
               <Link href="/quote" onClick={() => setIsOpen(false)}>
                 Request Quote
               </Link>
             </Button>
-            <Button variant="outline" asChild className="w-full">
+            <Button variant="outline" asChild className="w-full h-12 text-base font-semibold">
               <Link href="/emergency" onClick={() => setIsOpen(false)}>
                 Emergency Service
               </Link>
