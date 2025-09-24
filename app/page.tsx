@@ -38,7 +38,7 @@ export default function HomePage() {
         {/* Overlay */}
         <div className="absolute inset-0 bg-[#323232]/80" />
 
-        <div className="relative z-10 container mx-auto px-4 pt-20 sm:pt-24 md:pt-8">
+        <div className="relative z-10 w-full mx-auto px-4 pt-20 sm:pt-24 md:pt-8">
           <div className="w-full mx-auto text-center">
             {/* <Badge variant="secondary" className="mb-4 sm:mb-6 bg-[#323232]/20 text-[#b0b1b1] border-[#b0b1b1]/30 text-xs sm:text-sm">
               Serving Northern Indiana • 70-Mile Radius
@@ -53,7 +53,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-6 sm:mb-8 text-[#b0b1b1] max-w-4xl mx-auto text-balance">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-6 sm:mb-8 text-[#8cc63e] max-w-4xl mx-auto text-center text-balance">
               Minimize Downtime, Maximize Efficiency.
             </p>
 
@@ -73,14 +73,14 @@ export default function HomePage() {
             </div>
 
             {/* Trust Bar */}
-            <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-[#b0b1b1]">
+            <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-white">
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4" />
                 24/7 Emergency Support
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
-                Northern Indiana Coverage
+                Nationwide Coverage
               </div>
               <div className="flex items-center gap-2">
                 <Shield className="w-4 h-4" />
@@ -95,7 +95,7 @@ export default function HomePage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance text-black">Complete Mechanical Solutions</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance text-[#8cc63e]">Complete Mechanical Services</h2>
             <p className="text-lg text-black max-w-2xl mx-auto">
               From routine maintenance to emergency repairs, we keep your facility running at peak performance.
             </p>
@@ -107,43 +107,54 @@ export default function HomePage() {
                 icon: <Thermometer className="w-8 h-8" />,
                 title: "HVAC Systems",
                 description: "Complete heating, ventilation, and air conditioning services for commercial facilities.",
+                href: "/services/hvac",
               },
               {
                 icon: <Droplets className="w-8 h-8" />,
                 title: "Chillers & Refrigeration",
                 description: "Expert chiller maintenance, repair, and replacement for critical cooling systems.",
+                href: "/services/chillers",
               },
               {
                 icon: <Zap className="w-8 h-8" />,
                 title: "Boiler Services",
                 description: "Comprehensive boiler maintenance, repair, and efficiency optimization.",
+                href: "/services/boiler",
               },
               {
                 icon: <Wrench className="w-8 h-8" />,
                 title: "Industrial Piping",
                 description: "Custom piping solutions, installation, and repair for industrial applications.",
+                href: "/services/piping",
               },
               {
                 icon: <Shield className="w-8 h-8" />,
                 title: "Welding & Fabrication",
                 description: "Professional welding and custom fabrication services for industrial needs.",
+                href: "/services/welding",
               },
               {
                 icon: <Users className="w-8 h-8" />,
                 title: "Preventive Maintenance",
                 description: "Scheduled maintenance programs to prevent costly breakdowns and extend equipment life.",
+                href: "/services/maintenance",
               },
             ].map((service, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow bg-white border-none shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
-                <CardContent className="p-6">
-                  <div className="text-[#8cc63e] mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2 text-[#323232]">{service.title}</h3>
-                  <p className="text-[#323232]/80">{service.description}</p>
-                  <Button variant="link" className="p-0 mt-4 text-[#8cc63e] hover:text-[#255553] transition-colors">
-                    Learn More →
-                  </Button>
-                </CardContent>
-              </Card>
+              <Link
+                key={index}
+                href={service.href}
+                className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#8cc63e] rounded-xl"
+                aria-label={`${service.title} – Learn more`}
+              >
+                <Card className="transition-colors bg-white border border-transparent shadow-[0_4px_12px_rgba(0,0,0,0.12)] group-hover:bg-[#8cc63e] group-hover:border-[#8cc63e]">
+                  <CardContent className="p-6">
+                    <div className="mb-4 text-[#8cc63e] group-hover:text-white">{service.icon}</div>
+                    <h3 className="text-xl font-semibold mb-2 text-[#323232] group-hover:text-white">{service.title}</h3>
+                    <p className="text-[#323232]/80 group-hover:text-white/90">{service.description}</p>
+                    <span className="inline-block mt-4 text-[#8cc63e] group-hover:text-white">Learn More →</span>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
@@ -162,12 +173,12 @@ export default function HomePage() {
                 years.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-[#8cc63e] text-white hover:bg-[#255553] border border-white px-8 py-4 transition-colors duration-200">
+                <Button size="lg" className="bg-[#8cc63e] text-white hover:bg-[#255553] px-8 py-4 transition-colors duration-200">
                   Download Free PM Checklist
                 </Button>
                 <Button
                   size="lg"
-                  className="bg-[#8cc63e] text-white hover:bg-[#255553] border border-white px-8 py-4 transition-colors duration-200"
+                  className="bg-[#8cc63e] text-white hover:bg-[#255553] px-8 py-4 transition-colors duration-200"
                 >
                   Schedule PM Assessment
                 </Button>
