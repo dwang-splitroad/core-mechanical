@@ -1,7 +1,10 @@
 {
-  "name": "my-v0-project",
-  "version": "0.1.0",
+  "name": "core-mechanical",
+  "version": "1.0.0",
   "private": true,
+  "description": "Core Mechanical - Premier HVAC, plumbing, and mechanical services in Northern Indiana. Serving commercial, industrial, and institutional facilities with expert installation, maintenance, and emergency repair services.",
+  "keywords": ["HVAC", "mechanical services", "plumbing", "refrigeration", "boiler service", "Northern Indiana", "commercial HVAC", "industrial mechanical"],
+  "author": "Core Mechanical",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
