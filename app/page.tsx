@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, Thermometer, Droplets, Zap, Shield, Users, Phone, Clock, MapPin, Wrench, MessageSquare, Handshake, ShieldCheck, Snowflake, Hammer } from "lucide-react"
+import { CheckCircle, Thermometer, Droplets, Zap, Shield, Users, Phone, Clock, MapPin, Wrench, MessageSquare, Handshake, ShieldCheck, Snowflake, Hammer, Calendar, Building } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { Header } from "@/components/layout/Header"
@@ -173,8 +173,57 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Solutions Bubbles */}
+      <section className="py-12" style={{ backgroundColor: '#2b2b2b' }}>
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#8cc63e] mb-3">Solutions to Keep Your Facility Running</h2>
+            <p className="text-white/80 max-w-2xl mx-auto">Choose the path that best fits your needs - prevent issues before they happen, build to your specs, install with confidence, or get rapid repairs.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {[
+              {
+                icon: <Calendar className="w-7 h-7" />,
+                title: "Planned Maintenance",
+                description: "Reduce emergencies, extend equipment life, and control costs.",
+                href: "/solutions/maintenance",
+              },
+              {
+                icon: <Building className="w-7 h-7" />,
+                title: "Custom Build",
+                description: "Design-build solutions tailored to your facility’s needs.",
+                href: "/solutions/design-build",
+              },
+              {
+                icon: <Wrench className="w-7 h-7" />,
+                title: "Service & Install",
+                description: "Expert installation, optimization, and system upgrades.",
+                href: "/solutions/service-install",
+              },
+              {
+                icon: <Shield className="w-7 h-7" />,
+                title: "Emergency Repair",
+                description: "24/7 emergency repair to minimize downtime and risk.",
+                href: "/emergency",
+              },
+            ].map((s, i) => (
+              <Link key={i} href={s.href} className="group block">
+                <Card className="bg-[#2b2b2b] text-white h-full shadow-[0_6px_20px_rgba(255,255,255,0.12)]">
+                  <CardContent className="p-6 text-center flex flex-col items-center">
+                    <div className="text-[#8cc63e] mb-3">{s.icon}</div>
+                    <h3 className="text-lg font-semibold mb-2">{s.title}</h3>
+                    <p className="text-white/80 text-sm mb-4 flex-grow">{s.description}</p>
+                    <span className="text-[#8cc63e] group-hover:underline">Learn More →</span>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Preventive Maintenance Hook */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="bg-[#323232] text-white rounded-2xl p-8 lg:p-12">
             <div className="max-w-4xl mx-auto text-center">
@@ -199,7 +248,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Why Choose Us */}
       <section className="py-16 bg-white">
