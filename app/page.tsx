@@ -93,7 +93,7 @@ export default function HomePage() {
       </section>
 
       {/* Core Services Snapshot */}
-      <section className="py-16 bg-white">
+      <section className="py-[100px] bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance text-[#8cc63e]">Complete Mechanical Services</h2>
@@ -174,7 +174,7 @@ export default function HomePage() {
       </section>
 
       {/* Solutions Bubbles */}
-      <section className="py-16 sm:py-20" style={{ backgroundColor: '#2b2b2b' }}>
+      <section className="py-[100px]" style={{ backgroundColor: '#2b2b2b' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#8cc63e] mb-3">Solutions to Keep Your Facility Running</h2>
@@ -208,7 +208,7 @@ export default function HomePage() {
               },
             ].map((s, i) => (
               <Link key={i} href={s.href} className="group block">
-                <Card className="bg-[#2b2b2b] text-white h-full shadow-[0_6px_20px_rgba(255,255,255,0.12)]">
+                <Card className="bg-[#2b2b2b] text-white h-full shadow-[0_6px_20px_rgba(255,255,255,0.12)] border-0">
                   <CardContent className="p-6 text-center flex flex-col items-center">
                     <div className="text-[#8cc63e] mb-3">{s.icon}</div>
                     <h3 className="text-lg font-semibold mb-2">{s.title}</h3>
@@ -251,7 +251,7 @@ export default function HomePage() {
       </section> */}
 
       {/* Why Choose Us */}
-      <section className="py-16 bg-white">
+      <section className="py-[100px] bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-balance text-[#323232]">
@@ -296,7 +296,7 @@ export default function HomePage() {
 
       {/* Social Proof */}
       <section
-        className="relative py-16 text-white"
+        className="relative py-[100px] text-white"
         style={{
           backgroundImage: "url('/us-flag-black.png')",
           backgroundSize: 'cover',
