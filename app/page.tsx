@@ -174,7 +174,7 @@ export default function HomePage() {
       </section>
 
       {/* Solutions Bubbles */}
-      <section className="py-12" style={{ backgroundColor: '#2b2b2b' }}>
+      <section className="py-16 sm:py-20" style={{ backgroundColor: '#2b2b2b' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#8cc63e] mb-3">Solutions to Keep Your Facility Running</h2>
