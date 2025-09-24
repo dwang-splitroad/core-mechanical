@@ -4,14 +4,36 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { navigationLinks } from '@/config/nav';
 import { cn } from '@/lib/utils';
+import { useRef, useState } from 'react';
 
 export function DesktopNav({ isOnDark }: { isOnDark: boolean }) {
   const pathname = usePathname();
+  const [openMenuKey, setOpenMenuKey] = useState<string | null>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleEnter = (key: string) => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setOpenMenuKey(key);
+  };
+
+  const handleLeave = () => {
+    // Linger the dropdown for a brief moment to avoid accidental closes
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = setTimeout(() => setOpenMenuKey(null), 250);
+  };
 
   return (
     <nav className="hidden lg:flex items-center space-x-1">
       {navigationLinks.map((item) => (
-        <div key={item.title} className="relative group">
+        <div
+          key={item.title}
+          className="relative"
+          onMouseEnter={() => item.children && handleEnter(item.title)}
+          onMouseLeave={() => item.children && handleLeave()}
+        >
           {item.children ? (
             <>
               {/* Dropdown Trigger */}
@@ -20,11 +42,11 @@ export function DesktopNav({ isOnDark }: { isOnDark: boolean }) {
                   'inline-flex items-center justify-center rounded-md px-2 xl:px-4 py-2 text-sm xl:text-base font-medium transition-colors',
                   {
                     'text-white hover:bg-white/10': isOnDark,
-                    'text-foreground hover:bg-accent hover:text-accent-foreground': !isOnDark,
+                    'text-white hover:bg-white/10': !isOnDark,
                   },
                   // Active page indicator styles
                   {
-                    'underline underline-offset-8 text-primary':
+                    'underline underline-offset-8 text-white':
                       !isOnDark && item.children.some((child) => pathname.startsWith(child.href)),
                     'underline underline-offset-8 text-white':
                       isOnDark && item.children.some((child) => pathname.startsWith(child.href)),
@@ -37,8 +59,15 @@ export function DesktopNav({ isOnDark }: { isOnDark: boolean }) {
                 </svg>
               </button>
               
-              {/* Dropdown Content - Optimized hover with pre-blur */}
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[500px] lg:w-[600px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-100 ease-out z-50">
+              {/* Dropdown Content - controlled with lingered hover */}
+              <div
+                className={cn(
+                  "absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[500px] lg:w-[600px] transition-opacity duration-200 ease-out z-50",
+                  openMenuKey === item.title ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+                )}
+                onMouseEnter={() => handleEnter(item.title)}
+                onMouseLeave={handleLeave}
+              >
                 <div className={cn(
                   "backdrop-blur-md border shadow-xl rounded-md p-4 will-change-[backdrop-filter]",
                   isOnDark 
@@ -93,12 +122,10 @@ export function DesktopNav({ isOnDark }: { isOnDark: boolean }) {
                 'inline-flex items-center justify-center rounded-md px-2 xl:px-4 py-2 text-sm xl:text-base font-medium transition-colors',
                 {
                   'text-white hover:bg-white/10': isOnDark,
-                  'text-foreground hover:bg-accent hover:text-accent-foreground': !isOnDark,
+                  'text-white hover:bg-white/10': !isOnDark,
                 },
                 // Active state
-                pathname === item.href && (isOnDark
-                  ? 'text-white underline underline-offset-8'
-                  : 'text-primary underline underline-offset-8')
+                pathname === item.href && 'text-white underline underline-offset-8'
               )}
             >
               {item.title}

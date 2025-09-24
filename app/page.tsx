@@ -19,9 +19,9 @@ export default function HomePage() {
     <div className="min-h-screen">
 
       {/* Hero Section with Background Video */}
-      <section className="relative overflow-hidden text-white min-h-[100svh] flex items-center">
+      <section id="hero" className="relative overflow-hidden text-white min-h-[100svh] flex items-center">
         <div className="absolute inset-x-0 top-0 z-20">
-          <Header variant="onDark" />
+          <Header variant="dynamic" dynamicTargetId="hero" />
         </div>
         <video
           className="absolute inset-0 w-full h-full object-cover"

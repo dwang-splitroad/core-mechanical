@@ -1,35 +1,65 @@
 // components/layout/Header.tsx
+"use client";
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { DesktopNav } from './DesktopNav';
 import { MobileNav } from './MobileNav';
 import { cn } from '@/lib/utils';
 
 interface HeaderProps {
-  variant?: 'default' | 'onDark';
+  variant?: 'default' | 'onDark' | 'dynamic';
+  dynamicTargetId?: string;
 }
 
-export function Header({ variant = 'default' }: HeaderProps) {
-  const isOnDark = variant === 'onDark';
+export function Header({ variant = 'dynamic', dynamicTargetId = 'hero' }: HeaderProps) {
+  const [isOnDark, setIsOnDark] = useState<boolean>(variant === 'onDark');
+
+  useEffect(() => {
+    if (variant !== 'dynamic') return;
+    const target = document.getElementById(dynamicTargetId);
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setIsOnDark(entry.isIntersecting && entry.intersectionRatio > 0.1);
+      },
+      { threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] }
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [variant, dynamicTargetId]);
 
   return (
     <header className={cn(
+      'fixed top-0 left-0 right-0 z-50 transition-colors',
       isOnDark 
         ? 'bg-transparent' 
-        : 'bg-background/98 backdrop-blur-sm border-b border-border/50 will-change-[backdrop-filter]'
+        : 'bg-[#232323]/98 backdrop-blur-sm border-b border-border/50 will-change-[backdrop-filter]'
     )}>
-      <div className="w-full px-2 sm:px-4 relative h-16 sm:h-20 md:h-32 lg:h-36 flex items-center justify-between">
+      <div
+        className={cn(
+          "w-full px-2 sm:px-4 relative flex items-center justify-between transition-all duration-300",
+          isOnDark ? "h-16 sm:h-20 md:h-28 lg:h-32" : "h-12 sm:h-14 md:h-16 lg:h-16"
+        )}
+      >
         {/* Logo - positioned at far left edge */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <span className="sr-only">Core Mechanical</span>
             <Image
-              src={isOnDark ? "/core-logo-white-green.png" : "/core-logo-no-inc.svg"}
+              src={isOnDark ? "/core-logo-white-green.png" : "/core-logo-white-green.png"}
               alt="Core Mechanical Logo"
-              width={300}
-              height={84}
-              className="h-10 sm:h-12 md:h-20 lg:h-24 xl:h-28 w-auto"
+              width={260}
+              height={72}
+              className={cn(
+                "w-auto transition-all duration-300",
+                isOnDark ? "h-8 sm:h-10 md:h-16 lg:h-20 xl:h-24" : "h-6 sm:h-8 md:h-10 lg:h-12 xl:h-14"
+              )}
               priority
             />
           </Link>
