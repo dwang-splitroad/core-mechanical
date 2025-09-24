@@ -36,32 +36,36 @@ export default function HomePage() {
           <source src="/header-video.mp4" type="video/mp4" />
         </video>
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-[#323232]/80" />
 
         <div className="relative z-10 container mx-auto px-4 pt-20 sm:pt-24 md:pt-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="secondary" className="mb-4 sm:mb-6 bg-white/10 text-white border-white/20 text-xs sm:text-sm">
+          <div className="w-full mx-auto text-center">
+            {/* <Badge variant="secondary" className="mb-4 sm:mb-6 bg-[#323232]/20 text-[#b0b1b1] border-[#b0b1b1]/30 text-xs sm:text-sm">
               Serving Northern Indiana • 70-Mile Radius
-            </Badge>
+            </Badge> */}
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6 text-balance leading-tight">
-              Commercial mechanical service that keeps your plant running
-            </h1>
+            <div className="font-bold mb-4 sm:mb-6 text-white font-universe w-full mx-auto text-center">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-2 tracking-wide">
+                INDUSTRY LEADING
+              </div>
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl leading-none tracking-tight whitespace-nowrap" style={{fontSize: 'clamp(2rem, 8vw, 8rem)'}}>
+                MECHANICAL CONTRACTING
+              </div>
+            </div>
 
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 max-w-3xl mx-auto text-balance">
-              Expert HVAC, chiller, boiler, and industrial piping services with 24/7 emergency response. Minimize
-              downtime, maximize efficiency.
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-6 sm:mb-8 text-[#b0b1b1] max-w-4xl mx-auto text-balance">
+              Minimize Downtime, Maximize Efficiency.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12">
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg w-full sm:w-auto">
+              <Button size="lg" className="bg-[#8cc63e] hover:bg-[#255553] text-white px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg w-full sm:w-auto transition-colors duration-200">
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Call Now: (574) 555-0123
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-primary px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg bg-transparent w-full sm:w-auto"
+                className="border-[#8cc63e] text-[#8cc63e] hover:bg-[#8cc63e] hover:text-white px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg bg-transparent w-full sm:w-auto transition-colors duration-200"
                 asChild
               >
                 <Link href="/quote">Request Free Quote</Link>
@@ -69,7 +73,7 @@ export default function HomePage() {
             </div>
 
             {/* Trust Bar */}
-            <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-white/80">
+            <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-[#b0b1b1]">
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4" />
                 24/7 Emergency Support
@@ -88,11 +92,11 @@ export default function HomePage() {
       </section>
 
       {/* Core Services Snapshot */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">Complete Mechanical Solutions</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance text-black">Complete Mechanical Solutions</h2>
+            <p className="text-lg text-black max-w-2xl mx-auto">
               From routine maintenance to emergency repairs, we keep your facility running at peak performance.
             </p>
           </div>
@@ -130,12 +134,12 @@ export default function HomePage() {
                 description: "Scheduled maintenance programs to prevent costly breakdowns and extend equipment life.",
               },
             ].map((service, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card key={index} className="hover:shadow-lg transition-shadow bg-white border-none shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
                 <CardContent className="p-6">
-                  <div className="text-primary mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.description}</p>
-                  <Button variant="link" className="p-0 mt-4 text-primary">
+                  <div className="text-[#8cc63e] mb-4">{service.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2 text-[#323232]">{service.title}</h3>
+                  <p className="text-[#323232]/80">{service.description}</p>
+                  <Button variant="link" className="p-0 mt-4 text-[#8cc63e] hover:text-[#255553] transition-colors">
                     Learn More →
                   </Button>
                 </CardContent>
@@ -148,23 +152,22 @@ export default function HomePage() {
       {/* Preventive Maintenance Hook */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="bg-primary text-primary-foreground rounded-2xl p-8 lg:p-12">
+          <div className="bg-[#323232] text-white rounded-2xl p-8 lg:p-12">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-balance">
                 Prevent Costly Breakdowns with Our PM Program
               </h2>
-              <p className="text-xl mb-8 text-primary-foreground/90">
+              <p className="text-xl mb-8 text-white">
                 Our preventive maintenance program reduces emergency calls by up to 80% and extends equipment life by
                 years.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" className="px-8 py-4">
+                <Button size="lg" className="bg-[#8cc63e] text-white hover:bg-[#255553] border border-white px-8 py-4 transition-colors duration-200">
                   Download Free PM Checklist
                 </Button>
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 bg-transparent"
+                  className="bg-[#8cc63e] text-white hover:bg-[#255553] border border-white px-8 py-4 transition-colors duration-200"
                 >
                   Schedule PM Assessment
                 </Button>
@@ -175,10 +178,10 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-balance">
+            <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-balance text-[#323232]">
               Why Facility Managers Choose Core Mechanical
             </h2>
 
@@ -206,10 +209,10 @@ export default function HomePage() {
                 },
               ].map((item, index) => (
                 <div key={index} className="flex gap-4">
-                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                  <CheckCircle className="w-6 h-6 text-[#8cc63e] flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.description}</p>
+                    <h3 className="text-xl font-semibold mb-2 text-[#323232]">{item.title}</h3>
+                    <p className="text-[#323232]/70">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -219,11 +222,11 @@ export default function HomePage() {
       </section>
 
       {/* Social Proof */}
-      <section className="py-16">
+      <section className="py-16 bg-[#323232]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-8">Trusted by Leading Facilities</h2>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+            <h2 className="text-3xl font-bold mb-8 text-white">Trusted by Leading Facilities</h2>
+            <div className="flex flex-wrap justify-center items-center gap-8 text-[#b0b1b1]">
               <div className="text-2xl font-bold">Chamber of Commerce</div>
               <div className="text-2xl font-bold">BBB A+ Rating</div>
               <div className="text-2xl font-bold">EPA Certified</div>
@@ -231,15 +234,15 @@ export default function HomePage() {
             </div>
           </div>
 
-          <Card className="max-w-4xl mx-auto">
+          <Card className="max-w-4xl mx-auto bg-white border-[#b0b1b1]/20">
             <CardContent className="p-8">
-              <blockquote className="text-xl text-center mb-6 text-balance">
+              <blockquote className="text-xl text-center mb-6 text-balance text-[#323232]">
                 "Core Mechanical's preventive maintenance program has eliminated our emergency breakdowns. Their team is
                 professional, responsive, and truly understands industrial systems."
               </blockquote>
               <div className="text-center">
-                <p className="font-semibold">Mike Johnson</p>
-                <p className="text-muted-foreground">Facility Manager, ABC Manufacturing</p>
+                <p className="font-semibold text-[#323232]">Mike Johnson</p>
+                <p className="text-[#323232]/70">Facility Manager, ABC Manufacturing</p>
               </div>
             </CardContent>
           </Card>

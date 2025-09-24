@@ -35,10 +35,10 @@ export const metadata: Metadata = {
     description: 'Expert HVAC, plumbing, refrigeration, and mechanical services throughout Northern Indiana. 24/7 emergency service, preventive maintenance, and energy-efficient solutions.',
     images: [
       {
-        url: '/core-logo-no-inc.svg',
-        width: 300,
-        height: 84,
-        alt: 'Core Mechanical Logo',
+        url: 'https://images.unsplash.com/photo-1581090466144-8ed89ea98b25?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        width: 1740,
+        height: 1160,
+        alt: 'Industrial mechanical equipment and HVAC systems',
       },
     ],
   },
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Core Mechanical - Premier HVAC & Mechanical Services | Northern Indiana',
     description: 'Expert HVAC, plumbing, refrigeration, and mechanical services throughout Northern Indiana. 24/7 emergency service and preventive maintenance.',
-    images: ['/core-logo-no-inc.svg'],
+    images: ['https://images.unsplash.com/photo-1581090466144-8ed89ea98b25?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
   },
   verification: {
     google: 'your-google-verification-code-here',
@@ -101,7 +101,7 @@ export default function RootLayout({
               description: 'Premier HVAC, plumbing, refrigeration, and mechanical services throughout Northern Indiana. Serving commercial, industrial, and institutional facilities.',
               url: 'https://coremechanical.com',
               logo: 'https://coremechanical.com/core-logo-no-inc.svg',
-              image: 'https://coremechanical.com/core-logo-no-inc.svg',
+              image: 'https://images.unsplash.com/photo-1581090466144-8ed89ea98b25?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
               telephone: '+1-574-555-0123',
               address: {
                 '@type': 'PostalAddress',

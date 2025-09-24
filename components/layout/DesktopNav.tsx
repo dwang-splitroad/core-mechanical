@@ -37,13 +37,13 @@ export function DesktopNav({ isOnDark }: { isOnDark: boolean }) {
                 </svg>
               </button>
               
-              {/* Dropdown Content - Immediate CSS hover */}
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[500px] lg:w-[600px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 ease-out z-50">
+              {/* Dropdown Content - Optimized hover with pre-blur */}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[500px] lg:w-[600px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-100 ease-out z-50">
                 <div className={cn(
-                  "backdrop-blur-md border shadow-xl rounded-md p-4",
+                  "backdrop-blur-md border shadow-xl rounded-md p-4 will-change-[backdrop-filter]",
                   isOnDark 
-                    ? "bg-black/30 text-white border-white/20" 
-                    : "bg-background/95 text-foreground border-border shadow-lg"
+                    ? "bg-black/40 text-white border-white/20" 
+                    : "bg-background/98 text-foreground border-border shadow-lg"
                 )}>
                   <div className="grid grid-cols-2 gap-3">
                     {item.children.map((child) => (

@@ -17,7 +17,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
     <header className={cn(
       isOnDark 
         ? 'bg-transparent' 
-        : 'bg-background/95 backdrop-blur border-b border-border/50'
+        : 'bg-background/98 backdrop-blur-sm border-b border-border/50 will-change-[backdrop-filter]'
     )}>
       <div className="w-full px-2 sm:px-4 relative h-16 sm:h-20 md:h-32 lg:h-36 flex items-center justify-between">
         {/* Logo - positioned at far left edge */}

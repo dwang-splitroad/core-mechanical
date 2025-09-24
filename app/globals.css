@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -121,6 +122,29 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom font for Universe 57 Condensed */
+/* To add Universe 57 Condensed font, add this @font-face rule above:
+@font-face {
+  font-family: 'Universe57Condensed';
+  src: url('/fonts/Universe57Condensed.woff2') format('woff2'),
+       url('/fonts/Universe57Condensed.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: condensed;
+}
+*/
+.font-universe {
+  font-family: 'Universe57Condensed', 'Oswald', 'Arial Narrow', 'Liberation Sans Narrow', sans-serif;
+  font-stretch: condensed;
+}
+
+/* Force 2-line hero heading */
+.hero-heading-2-lines {
+  display: inline-block;
+  hyphens: none;
+  word-break: keep-all;
 }
 
 /* Custom styles for industrial feel */

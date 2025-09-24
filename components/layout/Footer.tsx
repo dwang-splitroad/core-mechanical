@@ -3,7 +3,7 @@ import { Wrench, Phone, MapPin, Clock } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-[#232323] text-background">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Column */}
