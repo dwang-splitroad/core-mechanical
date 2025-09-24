@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Wrench, Phone, MapPin, Clock } from "lucide-react";
+import Image from "next/image";
+import { Phone, MapPin, Clock } from "lucide-react";
 
 export function Footer() {
   return (
@@ -13,18 +14,10 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Column */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <Wrench className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <div>
-                <h3 className="font-bold">Core Mechanical</h3>
-                <p className="text-xs text-background/70">Services</p>
-              </div>
+            <div className="mb-4">
+              <Image src="/core-logo-white-green.png" alt="Core Mechanical" width={180} height={60} />
             </div>
-            <p className="text-background/70 mb-4 text-sm">
-              Improving business and life through expert craftsmanship and dedicated service to our community.
-            </p>
+            {/* Removed tagline per request */}
           </div>
 
           {/* Services Column */}
@@ -66,7 +59,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-background/20 mt-8 pt-8 text-center text-sm text-background/70">
-          <p>&copy; {new Date().getFullYear()} Core Mechanical Services. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Core Mechanical. All rights reserved.</p>
         </div>
       </div>
     </footer>
