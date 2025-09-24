@@ -23,7 +23,7 @@ export default function HomePage() {
           loop
           playsInline
           preload="metadata"
-          poster="/placeholder.jpg"
+          poster="/manufacturing-plant-industrial-facility.jpg"
         >
           <source src="/header-video-portrait.mp4" media="(max-aspect-ratio: 3/4)" type="video/mp4" />
           <source src="/header-video-landscape.mp4" media="(min-aspect-ratio: 3/4)" type="video/mp4" />

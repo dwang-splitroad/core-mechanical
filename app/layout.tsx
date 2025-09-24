@@ -49,6 +49,25 @@ export const metadata: Metadata = {
   verification: {
     google: 'your-google-verification-code-here',
   },
+  icons: {
+    icon: [
+      { url: '/core-logo-no-inc.svg', sizes: '32x32', type: 'image/svg+xml' },
+      { url: '/core-logo-no-inc.svg', sizes: '16x16', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/core-logo-no-inc.svg', sizes: '180x180', type: 'image/svg+xml' },
+    ],
+    shortcut: ['/core-logo-no-inc.svg'],
+  },
+  manifest: '/manifest.json',
+  other: {
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'default',
+    'apple-mobile-web-app-title': 'Core Mechanical',
+    'mobile-web-app-capable': 'yes',
+    'msapplication-TileColor': '#1a365d',
+    'theme-color': '#1a365d',
+  },
 }
 
 export const viewport: Viewport = {
@@ -68,6 +87,32 @@ export default function RootLayout({
         {/* <Header /> */}
         {children}
         <Analytics />
+        
+        {/* Structured Data for Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Core Mechanical',
+              description: 'Premier HVAC, plumbing, refrigeration, and mechanical services throughout Northern Indiana. Serving commercial, industrial, and institutional facilities.',
+              url: 'https://coremechanical.com',
+              logo: 'https://coremechanical.com/core-logo-no-inc.svg',
+              image: 'https://coremechanical.com/core-logo-no-inc.svg',
+              telephone: '+1-574-555-0123',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Northern Indiana',
+                addressRegion: 'IN',
+                addressCountry: 'US'
+              },
+              areaServed: 'Northern Indiana',
+              serviceType: ['HVAC Services', 'Plumbing Services', 'Refrigeration Services', 'Boiler Services', 'Mechanical Contracting', 'Emergency Repair Services'],
+              sameAs: []
+            })
+          }}
+        />
       </body>
     </html>
   )

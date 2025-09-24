@@ -1,0 +1,33 @@
+{
+  "name": "Core Mechanical - Premier HVAC & Mechanical Services",
+  "short_name": "Core Mechanical",
+  "description": "Expert HVAC, plumbing, refrigeration, and mechanical services throughout Northern Indiana. 24/7 emergency service, preventive maintenance, and energy-efficient solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a365d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/core-logo-no-inc.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/core-logo-no-inc.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/core-logo-no-inc.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["business", "utilities"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "id": "core-mechanical-app"
+}
