@@ -46,10 +46,10 @@ export default function HomePage() {
             </Badge> */}
 
             <div className="font-bold mb-4 sm:mb-6 text-white font-universe w-full mx-auto text-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-2 tracking-wide">
+              <div className="leading-tight mb-2 tracking-wide text-[1.6875rem] sm:text-[2.025rem] md:text-[2.7rem] lg:text-[3.375rem] xl:text-[4.05rem]">
                 INDUSTRY LEADING
               </div>
-              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl leading-none tracking-tight whitespace-nowrap" style={{fontSize: 'clamp(2rem, 8vw, 8rem)'}}>
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl leading-none tracking-tight whitespace-nowrap" style={{fontSize: 'clamp(1.8rem, 7.2vw, 7.2rem)'}}>
                 MECHANICAL CONTRACTING
               </div>
             </div>
