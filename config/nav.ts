@@ -82,6 +82,12 @@ export const navigationLinks: NavItem[] = [
         description: '24/7 emergency service to minimize downtime and restore operations.',
         icon: Shield,
       },
+      {
+        title: 'All Solutions',
+        href: '/solutions',
+        description: 'View our complete range of strategic mechanical solutions.',
+        icon: Users,
+      },
     ],
   },
   {
@@ -111,6 +117,12 @@ export const navigationLinks: NavItem[] = [
         href: '/industries/commercial-kitchens',
         description: 'Specialized services for commercial kitchens and restaurants.',
         icon: ChefHat,
+      },
+      {
+        title: 'All Industries',
+        href: '/industries',
+        description: 'View all industries we serve.',
+        icon: Users,
       },
     ],
   },

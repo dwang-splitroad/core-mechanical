@@ -2,23 +2,21 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Phone, Clock, MapPin, CheckCircle, Wrench, Thermometer, Droplets, Zap, Shield, Users } from "lucide-react"
+import { CheckCircle, Thermometer, Droplets, Zap, Shield, Users, Phone, Clock, MapPin, Wrench } from "lucide-react"
 import Link from "next/link"
 import { Header } from "@/components/layout/Header"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen">
-      {/* Move header inside hero so it overlays video and use white text variant */}
 
       {/* Hero Section with Background Video */}
-      <section className="relative overflow-hidden text-white py-20 lg:py-32 min-h-[100svh] flex items-center">
+      <section className="relative overflow-hidden text-white min-h-[100svh] flex items-center">
         <div className="absolute inset-x-0 top-0 z-20">
           <Header variant="onDark" />
         </div>
-        {/* Background video */}
         <video
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover"
           autoPlay
           muted
           loop
@@ -26,11 +24,8 @@ export default function HomePage() {
           preload="metadata"
           poster="/placeholder.jpg"
         >
-          {/* Prefer portrait on tall viewports */}
           <source src="/header-video-portrait.mp4" media="(max-aspect-ratio: 3/4)" type="video/mp4" />
-          {/* Prefer landscape on wide viewports */}
           <source src="/header-video-landscape.mp4" media="(min-aspect-ratio: 3/4)" type="video/mp4" />
-          {/* Fallback to the existing single encode */}
           <source src="/header-video.mp4" type="video/mp4" />
         </video>
         {/* Overlay */}
@@ -243,124 +238,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-foreground text-background py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <Wrench className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <div>
-                  <h3 className="font-bold">Core Mechanical</h3>
-                  <p className="text-xs text-background/70">Services</p>
-                </div>
-              </div>
-              <p className="text-background/70 mb-4">
-                Improving business and life through expert craftsmanship and service to our community.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-background/70">
-                <li>
-                  <Link href="/services/hvac" className="hover:text-background transition-colors">
-                    HVAC Systems
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/chillers" className="hover:text-background transition-colors">
-                    Chillers
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/boilers" className="hover:text-background transition-colors">
-                    Boilers
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/piping" className="hover:text-background transition-colors">
-                    Industrial Piping
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Solutions</h4>
-              <ul className="space-y-2 text-background/70">
-                <li>
-                  <Link href="/solutions/maintenance" className="hover:text-background transition-colors">
-                    Preventive Maintenance
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/solutions/emergency" className="hover:text-background transition-colors">
-                    Emergency Service
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/solutions/design-build" className="hover:text-background transition-colors">
-                    Design-Build
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <div className="space-y-2 text-background/70">
-                <p className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  (574) 555-0123
-                </p>
-                <p className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4" />
-                  Northern Indiana
-                </p>
-                <p className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
-                  24/7 Emergency Service
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-background/20 mt-8 pt-8 text-center text-background/70">
-            <p>&copy; 2024 Core Mechanical Services. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-
-      {/* Sticky CTAs - desktop */}
-      <div className="hidden md:flex fixed bottom-4 right-4 flex-col gap-2 z-50">
-        <Button size="lg" className="bg-white text-black hover:bg-white/90 shadow-lg border border-white" asChild>
-          <Link href="/quote">Request Quote</Link>
-        </Button>
-        <Button size="lg" variant="outline" className="bg-background shadow-lg" asChild>
-          <Link href="tel:5745550123">
-            <Phone className="w-4 h-4 mr-2" />
-            Call Now
-          </Link>
-        </Button>
-      </div>
-
-      {/* Sticky CTAs - mobile bottom bar */}
-      <div className="md:hidden fixed bottom-0 inset-x-0 z-50 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto px-4 py-3 grid grid-cols-2 gap-3">
-          <Button size="sm" variant="outline" className="w-full" asChild>
-            <Link href="tel:5745550123">
-              <Phone className="w-4 h-4 mr-2" />
-              Call
-            </Link>
-          </Button>
-          <Button size="sm" className="w-full" asChild>
-            <Link href="/quote">Quote</Link>
-          </Button>
-        </div>
-      </div>
     </div>
   )
 }
