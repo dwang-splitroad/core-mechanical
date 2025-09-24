@@ -14,7 +14,11 @@ export function Header({ variant = 'default' }: HeaderProps) {
   const isOnDark = variant === 'onDark';
 
   return (
-    <header className={cn(isOnDark ? 'bg-transparent' : 'bg-background/95 backdrop-blur')}>
+    <header className={cn(
+      isOnDark 
+        ? 'bg-transparent' 
+        : 'bg-background/95 backdrop-blur border-b border-border/50'
+    )}>
       <div className="w-full px-4 relative h-32 md:h-36 flex items-center justify-between">
         {/* Logo - positioned at far left edge */}
         <div className="flex items-center">
@@ -39,7 +43,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
         {/* CTA Buttons - positioned at far right edge */}
         <div className="flex items-center">
           <div className="hidden md:flex items-center space-x-3">
-            <Button variant={isOnDark ? 'secondary' : 'outline'} size="sm" asChild>
+            <Button variant={isOnDark ? 'secondary' : 'default'} size="sm" asChild>
               <Link href="/emergency">Emergency Service</Link>
             </Button>
             <Button variant={isOnDark ? 'secondary' : 'default'} size="sm" asChild>

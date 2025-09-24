@@ -71,6 +71,12 @@ export const navigationLinks: NavItem[] = [
         icon: Calendar,
       },
       {
+        title: 'Service & Install',
+        href: '/solutions/service-install',
+        description: 'Complete installation and service solutions for all your mechanical systems.',
+        icon: Wrench,
+      },
+      {
         title: 'Design-Build',
         href: '/solutions/design-build',
         description: 'Custom mechanical solutions designed and built for your needs.',

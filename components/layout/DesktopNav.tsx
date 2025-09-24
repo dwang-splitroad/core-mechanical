@@ -39,19 +39,44 @@ export function DesktopNav({ isOnDark }: { isOnDark: boolean }) {
               
               {/* Dropdown Content - Immediate CSS hover */}
               <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[500px] lg:w-[600px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 ease-out z-50">
-                <div className="bg-black/30 backdrop-blur-md text-white border border-white/20 shadow-xl rounded-md p-4">
+                <div className={cn(
+                  "backdrop-blur-md border shadow-xl rounded-md p-4",
+                  isOnDark 
+                    ? "bg-black/30 text-white border-white/20" 
+                    : "bg-background/95 text-foreground border-border shadow-lg"
+                )}>
                   <div className="grid grid-cols-2 gap-3">
                     {item.children.map((child) => (
                       <Link
                         key={child.title}
                         href={child.href}
-                        className="block rounded-md p-3 hover:bg-white/20 transition-colors"
+                        className={cn(
+                          "block rounded-md p-3 transition-colors",
+                          isOnDark 
+                            ? "hover:bg-white/20" 
+                            : "hover:bg-accent/20"
+                        )}
                       >
                         <div className="flex items-start space-x-3">
-                          {child.icon && <child.icon className="h-5 w-5 mt-0.5 text-white/80" />}
+                          {child.icon && (
+                            <child.icon className={cn(
+                              "h-5 w-5 mt-0.5",
+                              isOnDark ? "text-white/80" : "text-muted-foreground"
+                            )} />
+                          )}
                           <div>
-                            <div className="font-semibold text-white">{child.title}</div>
-                            <div className="text-sm text-white/70 mt-1">{child.description}</div>
+                            <div className={cn(
+                              "font-semibold",
+                              isOnDark ? "text-white" : "text-foreground"
+                            )}>
+                              {child.title}
+                            </div>
+                            <div className={cn(
+                              "text-sm mt-1",
+                              isOnDark ? "text-white/70" : "text-muted-foreground"
+                            )}>
+                              {child.description}
+                            </div>
                           </div>
                         </div>
                       </Link>
