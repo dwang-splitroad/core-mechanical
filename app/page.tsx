@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { CheckCircle, Thermometer, Droplets, Zap, Shield, Users, Phone, Clock, MapPin, Wrench } from "lucide-react"
 import Link from "next/link"
 import { Header } from "@/components/layout/Header"
+import { Footer } from "@/components/layout/Footer"
 
 export default function HomePage() {
   return (
@@ -238,6 +239,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <Footer />
     </div>
   )
 }
