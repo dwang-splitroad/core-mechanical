@@ -5,17 +5,38 @@ import { Badge } from "@/components/ui/badge"
 import { Phone, Clock, MapPin, CheckCircle, Wrench, Thermometer, Droplets, Zap, Shield, Users } from "lucide-react"
 import Link from "next/link"
 import { Header } from "@/components/layout/Header"
-import { EmergencyBanner } from "@/components/layout/EmergencyBanner"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen">
-      <EmergencyBanner text="24/7 Emergency Service Available" />
-      <Header />
+      {/* Move header inside hero so it overlays video and use white text variant */}
 
-      {/* Hero Section */}
-      <section className="hero-gradient text-white py-20 lg:py-32">
-        <div className="container mx-auto px-4">
+      {/* Hero Section with Background Video */}
+      <section className="relative overflow-hidden text-white py-20 lg:py-32 min-h-[100svh] flex items-center">
+        <div className="absolute inset-x-0 top-0 z-20">
+          <Header variant="onDark" />
+        </div>
+        {/* Background video */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/placeholder.jpg"
+        >
+          {/* Prefer portrait on tall viewports */}
+          <source src="/header-video-portrait.mp4" media="(max-aspect-ratio: 3/4)" type="video/mp4" />
+          {/* Prefer landscape on wide viewports */}
+          <source src="/header-video-landscape.mp4" media="(min-aspect-ratio: 3/4)" type="video/mp4" />
+          {/* Fallback to the existing single encode */}
+          <source src="/header-video.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/50" />
+
+        <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="secondary" className="mb-6 bg-white/10 text-white border-white/20">
               Serving Northern Indiana • 70-Mile Radius
@@ -315,7 +336,7 @@ export default function HomePage() {
 
       {/* Sticky CTAs - desktop */}
       <div className="hidden md:flex fixed bottom-4 right-4 flex-col gap-2 z-50">
-        <Button size="lg" className="bg-accent hover:bg-accent/90 shadow-lg" asChild>
+        <Button size="lg" className="bg-white text-black hover:bg-white/90 shadow-lg border border-white" asChild>
           <Link href="/quote">Request Quote</Link>
         </Button>
         <Button size="lg" variant="outline" className="bg-background shadow-lg" asChild>
