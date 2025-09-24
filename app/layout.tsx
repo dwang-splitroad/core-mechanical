@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     template: '%s | Core Mechanical'
   },
   description: 'Core Mechanical provides expert HVAC, plumbing, refrigeration, and mechanical services throughout Northern Indiana. Serving commercial, industrial, and institutional facilities with 24/7 emergency service, preventive maintenance, and energy-efficient solutions.',
+  applicationName: 'Core Mechanical',
   keywords: ['HVAC services', 'mechanical contractor', 'plumbing services', 'refrigeration repair', 'boiler service', 'Northern Indiana', 'commercial HVAC', 'industrial mechanical', 'emergency repair', 'preventive maintenance'],
   authors: [{ name: 'Core Mechanical' }],
   creator: 'Core Mechanical',

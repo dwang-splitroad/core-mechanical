@@ -6,6 +6,12 @@ import { CheckCircle, Thermometer, Droplets, Zap, Shield, Users, Phone, Clock, M
 import Link from "next/link"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Core Mechanical - Premier HVAC & Mechanical Services | Northern Indiana',
+  description: 'Core Mechanical provides expert HVAC, plumbing, refrigeration, and mechanical services throughout Northern Indiana. Serving commercial, industrial, and institutional facilities with 24/7 emergency service, preventive maintenance, and energy-efficient solutions.',
+}
 
 export default function HomePage() {
   return (
