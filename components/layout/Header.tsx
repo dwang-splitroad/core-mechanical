@@ -19,19 +19,21 @@ export function Header({ variant = 'dynamic', dynamicTargetId = 'hero' }: Header
 
   useEffect(() => {
     if (variant !== 'dynamic') return;
-    const target = document.getElementById(dynamicTargetId);
-    if (!target) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        setIsOnDark(entry.isIntersecting && entry.intersectionRatio > 0.1);
-      },
-      { threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] }
-    );
+    const updateMode = () => {
+      // Switch shortly after the user starts scrolling. Approximate
+      // a "second scroll" by using a small pixel threshold.
+      const switchOffset = 160; // px
+      setIsOnDark(window.scrollY < switchOffset);
+    };
 
-    observer.observe(target);
-    return () => observer.disconnect();
+    updateMode();
+    window.addEventListener('scroll', updateMode, { passive: true });
+    window.addEventListener('resize', updateMode);
+    return () => {
+      window.removeEventListener('scroll', updateMode);
+      window.removeEventListener('resize', updateMode);
+    };
   }, [variant, dynamicTargetId]);
 
   return (
@@ -39,7 +41,7 @@ export function Header({ variant = 'dynamic', dynamicTargetId = 'hero' }: Header
       'fixed top-0 left-0 right-0 z-50 transition-colors',
       isOnDark 
         ? 'bg-transparent' 
-        : 'bg-[#232323]/98 backdrop-blur-sm border-b border-border/50 will-change-[backdrop-filter]'
+        : 'bg-[#232323]/98 backdrop-blur-sm will-change-[backdrop-filter]'
     )}>
       <div
         className={cn(

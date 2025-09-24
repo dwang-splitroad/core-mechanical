@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, Thermometer, Droplets, Zap, Shield, Users, Phone, Clock, MapPin, Wrench, MessageSquare, Handshake, ShieldCheck } from "lucide-react"
+import { CheckCircle, Thermometer, Droplets, Zap, Shield, Users, Phone, Clock, MapPin, Wrench, MessageSquare, Handshake, ShieldCheck, Snowflake, Hammer } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { Header } from "@/components/layout/Header"
@@ -102,56 +102,68 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
                 icon: <Thermometer className="w-8 h-8" />,
-                title: "HVAC Systems",
-                description: "Complete heating, ventilation, and air conditioning services for commercial facilities.",
+                title: "Heating & Air Conditioning",
+                description: "Complete HVAC solutions including installation, 24/7 repair, and preventive maintenance for commercial facilities.",
                 href: "/services/hvac",
               },
               {
-                icon: <Droplets className="w-8 h-8" />,
-                title: "Chillers & Refrigeration",
-                description: "Expert chiller maintenance, repair, and replacement for critical cooling systems.",
+                icon: <Snowflake className="w-8 h-8" />,
+                title: "Refrigeration Systems",
+                description: "Expert service for walk-in coolers, freezers, ice machines, and all critical commercial refrigeration equipment.",
                 href: "/services/chillers",
               },
               {
-                icon: <Zap className="w-8 h-8" />,
-                title: "Boiler Services",
-                description: "Comprehensive boiler maintenance, repair, and efficiency optimization.",
+                icon: <Droplets className="w-8 h-8" />,
+                title: "Chiller Service",
+                description: "Specialized maintenance, emergency repair, and efficiency optimization for industrial and commercial chillers.",
                 href: "/services/boiler",
+              },
+              {
+                icon: <Zap className="w-8 h-8" />,
+                title: "Boiler Service",
+                description: "Comprehensive boiler services focused on safety, compliance, and reliability, from annual tuning to emergency repair.",
+                href: "/services/piping",
+              },
+              {
+                icon: <Droplets className="w-8 h-8" />,
+                title: "Plumbing Services",
+                description: "Licensed commercial plumbing solutions, from emergency leak repair and drain jetting to new system installations.",
+                href: "/services/welding",
               },
               {
                 icon: <Wrench className="w-8 h-8" />,
                 title: "Industrial Piping",
-                description: "Custom piping solutions, installation, and repair for industrial applications.",
-                href: "/services/piping",
+                description: "Certified welding and installation of process piping for steam, compressed air, gas, and other critical applications.",
+                href: "/services/maintenance",
               },
               {
-                icon: <Shield className="w-8 h-8" />,
+                icon: <Hammer className="w-8 h-8" />,
                 title: "Welding & Fabrication",
-                description: "Professional welding and custom fabrication services for industrial needs.",
+                description: "Custom, in-shop and on-site fabrication and repair services delivered by AWS certified welders.",
                 href: "/services/welding",
               },
               {
                 icon: <Users className="w-8 h-8" />,
-                title: "Preventive Maintenance",
-                description: "Scheduled maintenance programs to prevent costly breakdowns and extend equipment life.",
+                title: "Maintenance Programs",
+                description: "Proactive, customized preventive maintenance plans that reduce costs, prevent downtime, and extend equipment life.",
                 href: "/services/maintenance",
               },
             ].map((service, index) => (
               <Link
                 key={index}
                 href={service.href}
-                className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#8cc63e] rounded-xl"
+                className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#8cc63e] rounded-xl"
                 aria-label={`${service.title} – Learn more`}
               >
-                <Card className="transition-colors bg-white border border-transparent shadow-[0_4px_12px_rgba(0,0,0,0.12)] group-hover:bg-[#8cc63e] group-hover:border-[#8cc63e]">
-                  <CardContent className="p-6">
-                    <div className="mb-4 text-[#8cc63e] group-hover:text-white">{service.icon}</div>
-                    <h3 className="text-xl font-semibold mb-2 text-[#323232] group-hover:text-white">{service.title}</h3>
-                    <p className="text-[#323232]/80 group-hover:text-white/90">{service.description}</p>
+                <Card className="transition-colors bg-white border border-transparent shadow-[0_4px_12px_rgba(0,0,0,0.12)] group-hover:bg-[#8cc63e] group-hover:border-[#8cc63e] h-full">
+                  <CardContent className="p-6 h-full flex flex-col items-center text-center">
+                    <div className="mb-4 text-[#8cc63e] group-hover:text-white flex justify-center">{service.icon}</div>
+                    <h3 className="text-xl font-semibold mb-3 text-[#323232] group-hover:text-white">{service.title}</h3>
+                    <p className="text-[#323232]/80 group-hover:text-white/90 flex-grow mt-1">{service.description}</p>
                     <span className="inline-block mt-4 text-[#8cc63e] group-hover:text-white">Learn More →</span>
                   </CardContent>
                 </Card>

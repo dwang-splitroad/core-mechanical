@@ -9,7 +9,7 @@ export default function ServiceInstallPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-gradient text-white py-16 lg:py-24">
+      <section className="text-white py-16 lg:py-24" style={{ backgroundColor: '#8cc63e' }}>
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="secondary" className="mb-6 bg-white/10 text-white border-white/20">
