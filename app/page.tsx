@@ -2,8 +2,9 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, Thermometer, Droplets, Zap, Shield, Users, Phone, Clock, MapPin, Wrench } from "lucide-react"
+import { CheckCircle, Thermometer, Droplets, Zap, Shield, Users, Phone, Clock, MapPin, Wrench, MessageSquare, Handshake, ShieldCheck } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import type { Metadata } from 'next'
@@ -233,30 +234,105 @@ export default function HomePage() {
       </section>
 
       {/* Social Proof */}
-      <section className="py-16 bg-[#323232]">
-        <div className="container mx-auto px-4">
+      <section
+        className="relative py-16 text-white"
+        style={{
+          backgroundImage: "url('/us-flag-black.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundColor: '#232323',
+        }}
+      >
+          <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-8 text-white">Trusted by Leading Facilities</h2>
-            <div className="flex flex-wrap justify-center items-center gap-8 text-[#b0b1b1]">
-              <div className="text-2xl font-bold">Chamber of Commerce</div>
-              <div className="text-2xl font-bold">BBB A+ Rating</div>
-              <div className="text-2xl font-bold">EPA Certified</div>
-              <div className="text-2xl font-bold">OSHA Compliant</div>
-            </div>
+            <Image
+              src="/core-values-text.png"
+              alt="Core Values"
+              width={320}
+              height={64}
+              className="mx-auto mb-8 h-auto w-[300px] sm:w-[420px]"
+              priority
+            />
           </div>
 
-          <Card className="max-w-4xl mx-auto bg-white border-[#b0b1b1]/20">
-            <CardContent className="p-8">
-              <blockquote className="text-xl text-center mb-6 text-balance text-[#323232]">
-                "Core Mechanical's preventive maintenance program has eliminated our emergency breakdowns. Their team is
-                professional, responsive, and truly understands industrial systems."
-              </blockquote>
-              <div className="text-center">
-                <p className="font-semibold text-[#323232]">Mike Johnson</p>
-                <p className="text-[#323232]/70">Facility Manager, ABC Manufacturing</p>
-              </div>
-            </CardContent>
-          </Card>
+            {/* Core Values Grid */}
+            <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-6">
+              {/* Open Communication */}
+              <Card className="bg-black border border-[#8cc63e] h-full lg:col-span-2">
+                <CardContent className="p-5 sm:p-6 text-center">
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="text-[#8cc63e]">
+                      <MessageSquare className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white">We Openly Communicate</h3>
+                      <p className="text-sm text-white/80 mt-1">Fast updates, clear expectations, no surprises.</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Value Every Opinion */}
+              <Card className="bg-black border border-[#8cc63e] h-full lg:col-span-2">
+                <CardContent className="p-5 sm:p-6 text-center">
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="text-[#8cc63e]">
+                      <Users className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white">We Value Everyone’s Opinion</h3>
+                      <p className="text-sm text-white/80 mt-1">We listen to your team and align work to your goals.</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Do the Right Thing */}
+              <Card className="bg-black border border-[#8cc63e] h-full lg:col-span-2">
+                <CardContent className="p-5 sm:p-6 text-center">
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="text-[#8cc63e]">
+                      <Shield className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white">We Do The Right Thing</h3>
+                      <p className="text-sm text-white/80 mt-1">Safety and integrity first—every task, every time.</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Treat Others Well */}
+              <Card className="bg-black border border-[#8cc63e] h-full lg:col-span-2 lg:col-start-2">
+                <CardContent className="p-5 sm:p-6 text-center">
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="text-[#8cc63e]">
+                      <Handshake className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white">We Treat Others As We Want To Be Treated</h3>
+                      <p className="text-sm text-white/80 mt-1">Respectful, transparent partnerships that last.</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Accountability */}
+              <Card className="bg-black border border-[#8cc63e] h-full lg:col-span-2 lg:col-start-4">
+                <CardContent className="p-5 sm:p-6 text-center">
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="text-[#8cc63e]">
+                      <CheckCircle className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white">We Hold Ourselves Accountable</h3>
+                      <p className="text-sm text-white/80 mt-1">Clear ownership, measurable outcomes, on-time delivery.</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
         </div>
       </section>
 

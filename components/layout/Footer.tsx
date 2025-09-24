@@ -6,16 +6,9 @@ export function Footer() {
     <footer
       className="relative text-background"
       style={{
-        backgroundImage: "url('/us-flag-black.png')",
-        // Fill the entire footer area
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundColor: '#101010',
+        backgroundColor: '#232323',
       }}
     >
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-[#101010]/90" />
       <div className="relative container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Column */}
